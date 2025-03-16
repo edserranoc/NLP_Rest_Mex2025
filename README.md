@@ -1,4 +1,4 @@
-# Rest-Mex: Research on Sentiment Analysis Task for Mexican Tourist Texts
+# Rest-Mex: Research on Sentiment Analysis Task for Mexican Tourist Texts 🇲🇽
 
 The goal of this task is to analyze TripAdvisor Spanish-language reviews and classify them based on three key aspects:
 
