@@ -2,5 +2,5 @@
 .venv_nlp
 init.sh
 /notebooks/data_analysis_edi.ipynb
-setup_env.sh
+.setup_env.sh
 __pycache__/
