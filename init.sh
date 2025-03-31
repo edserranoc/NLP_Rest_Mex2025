@@ -1,1 +1,0 @@
-source .venv_nlp/bin/activate
