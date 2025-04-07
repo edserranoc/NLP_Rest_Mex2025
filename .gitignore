@@ -1,4 +1,4 @@
-/data/Rest-Mex_2025_Train_DataSet
+/data/Train_DataSet
 .venv_nlp
 init.sh
 /notebooks/data_analysis_edi.ipynb
