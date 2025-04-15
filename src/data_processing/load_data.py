@@ -1,8 +1,12 @@
 import numpy as np
 import pandas as pd
 import geopandas as gpd
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 import os
 import re, unicodedata
+from typing import List, Dict
+import matplotlib.ticker as mticker
 
 class load_data:
     def __init__(self):
@@ -65,27 +69,54 @@ class load_data:
         
         return data
     
-    def plot_states_map(self, save=False):
+    def plot_states(self,   params:Dict= None,
+                            params_bar:Dict= None,
+                            save:bool=False):
         """
         Plot the states map
         """
         # Plot number of reviews by state
         data = self.merge_states()
         
-        # Plot the states map
-        ax = data.plot(column="counts", 
-                                  cmap="YlGnBu", 
-                                  legend=True,
-                                  edgecolor='black',
-                                  missing_kwds={'color': 'white','linewidth': 0.07},
-                                  figsize=(18,6),
-                                  linewidth=0.1
-                                  )
+        if params is None:
+            params = { "column": "counts",
+                        "cmap": "Purples",
+                        "legend": True,
+                        "edgecolor": 'black',
+                        "missing_kwds": {'color': 'white','linewidth': 0.1},
+                        "figsize": (20,6),
+                        "linewidth": 0.1,
+                        "legend_kwds": {
+                            "shrink": 0.2,
+                            "orientation": "horizontal",  # or "horizontal"
+                            "aspect": 85,
+                            "pad": 0.1,                           
+                            }
+                        }
+            
+        if params_bar is None:
+            params_bar = {'label': 'Number of Reviews by State',
+                            'loc': 'left',
+                            'fontdict': {'family': 'serif',
+                                         'size': 10,      # optional
+                                         'color': 'black'
+                                     }
+                          }
 
-        ax.set_title("Number of reviews by state")
-        ax.set_axis_off()
+        fig, ax = plt.subplots(figsize=(20, 6))
         
-    
+        # Plot the states map
+        data.plot(**params,ax=ax)
+        
+
+        cbar = ax.get_figure().get_axes()[-1]
+        #cbar.set_ylabel('Number of reviews')
+        cbar.set_title(**params_bar)
+        
+        ax.set_axis_off()
+        plt.show()
+        
+        
 if __name__ == "__main__":
     bf = load_data()
     data = bf.read_data()
