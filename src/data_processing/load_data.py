@@ -84,11 +84,6 @@ class load_data:
 
         ax.set_title("Number of reviews by state")
         ax.set_axis_off()
-        #fig = ax.get_figure()
-        #fig.add_axes([0.89, 0.21, 0.03, 0.31]) 
-    
-        #Map reference https://medium.com/@alex_44314/use-python-geopandas-to-make-a-us-map-with-alaska-and-hawaii-39a9f5c222c6
-        
         
     
 if __name__ == "__main__":
