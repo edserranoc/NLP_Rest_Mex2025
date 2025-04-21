@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import os
 import re, unicodedata
-from typing import List, Dict
+from typing import List, Dict, Tuple
 import matplotlib.ticker as mticker
 
 class load_data:
@@ -15,6 +15,10 @@ class load_data:
                                       'data',
                                       'Train_DataSet',
                                       'Rest-Mex_2025_train.csv')  # Path to the data file
+        self.path_embeddings = os.path.join(self.path_project,
+                                            'data',
+                                            'embeddings',
+                                            'word2vec_col.txt')   # Path to the embeddings file
         self.states_map = os.path.join(self.path_project, 'data', 'maps', 'ent.gpkg')
         self.mun_map = os.path.join(self.path_project, 'data', 'maps', 'mun.gpkg')
         
@@ -23,6 +27,8 @@ class load_data:
         self.mun_map = self.read_mun_map()
         self.data["Region"] = self.data["Region"].apply(lambda x: self.normalize_state(x))
         self.states_map["NOMGEO"] = self.states_map["NOMGEO"].apply(lambda x: self.normalize_state(x))
+
+        self.vocab, self.emb_mat = self.load_vocab_embeddings()
         
     def read_data(self):
         return pd.read_csv(self.path_data, sep=',')
@@ -68,6 +74,32 @@ class load_data:
         #data['counts'] = data['counts'].fillna(NaN)
         
         return data
+   
+    def load_vocab_embeddings(self) -> Tuple[dict, np.ndarray]:
+        """
+        Load the vocabulary and pre-trained embeddings. It uses the word2vec model. The embeddings
+        are stored in a file called 'word2vec_col.txt'.
+
+        Returns
+        -------
+        tuple
+            A tuple containing the vocabulary and embeddings matrix.
+        """
+        embeddings_list = []
+        vocab = {}
+        with open(self.path_embeddings, 'r') as f:
+            for i, line in enumerate(f):
+                if i != 0:
+                    values = line.split()
+                    vocab[values[0]] = i + 1
+                    vector = np.asarray(values[1:], dtype = "float32")
+                    embeddings_list.append(vector)
+        embeddings_list.insert(0, np.mean(np.vstack(embeddings_list), axis = 0)) # Mean vector for unk
+        embeddings_list.insert(0, np.zeros(100))                                 # Padding vector
+        vocab['pad'] = 0
+        vocab['unk'] = 1
+        emb_mat = np.vstack(embeddings_list)
+        return vocab, emb_mat
     
     def plot_states(self,   params:Dict= None,
                             params_bar:Dict= None,

@@ -1,6 +1,12 @@
 /data/Train_DataSet
 .venv_nlp
+.NLP_env
 init.sh
 /notebooks/data_analysis_edi.ipynb
 .setup_env.sh
+.vscode/
 __pycache__/
+
+.DS_Store
+/notebooks/data_analysis_ezau.ipynb
+/data/embeddings/word2vec_col.txt
