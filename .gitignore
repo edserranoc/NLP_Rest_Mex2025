@@ -1,4 +1,5 @@
 /data/Train_DataSet
+/data/Test_DataSet
 .venv_nlp
 .NLP_env
 init.sh
@@ -8,5 +9,5 @@ init.sh
 __pycache__/
 
 .DS_Store
-/notebooks/data_analysis_ezau.ipynb
 /data/embeddings/word2vec_col.txt
+/notebooks/trained_model/
