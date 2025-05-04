@@ -1,7 +1,7 @@
 /data/Train_DataSet
 /data/Test_DataSet
 .venv_nlp
-.NLP_env
+.NLP_rest
 init.sh
 /notebooks/data_analysis_edi.ipynb
 .setup_env.sh
