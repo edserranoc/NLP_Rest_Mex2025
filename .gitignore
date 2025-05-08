@@ -11,3 +11,6 @@ __pycache__/
 .DS_Store
 /data/embeddings/word2vec_col.txt
 /notebooks/trained_model/
+/notebooks/data_analysis_ezau_copy2.ipynb
+/notebooks/data_analysis_ezau_copy.ipynb
+/notebooks/ezau_run_final.txt
