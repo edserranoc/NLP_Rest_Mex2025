@@ -4,3 +4,4 @@ init.sh
 /notebooks/data_analysis_edi.ipynb
 .setup_env.sh
 __pycache__/
+/notebooks/data_preprocessing.ipynb
