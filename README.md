@@ -1,4 +1,4 @@
-# Rest-Mex: Research on Sentiment Analysis Task for Mexican Tourist Texts 🇲🇽
+# Rest-Mex 2025: Research on Sentiment Analysis Task for Mexican Tourist Texts (FrogCode Team) 🇲🇽 
 
 The goal of this task is to analyze TripAdvisor Spanish-language reviews and classify them based on three key aspects:
 
@@ -24,3 +24,19 @@ Next, we classify the review according to the type of site being reviewed. The r
   - 🍽️ Type: The category of the reviewed place (Hotel, Restaurant, Attractive).
 
 To access the data, I recommend registering for the contest in [Rest-Mex 2025](https://sites.google.com/cimat.mx/rest-mex-2025/).
+
+## Citing
+
+If you use NLP project in your research, please use the following citation:
+
+    @misc{...,
+      title        = {...},
+      month        = ...,
+      year         = 2025,
+      doi          = {...},
+      url          = {...}
+    }
+
+## License
+
+This project is licensed under the GPL-3.0 license. See the LICENSE file for details.
