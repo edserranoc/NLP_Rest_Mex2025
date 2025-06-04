@@ -1,0 +1,16 @@
+.vscode/
+__pycache__/
+/data/embeddings/word2vec_col.txt
+/data/Train_DataSet
+/data/Test_DataSet
+.venv_nlp
+.NLP_rest
+init.sh
+/notebooks/data_analysis_edi.ipynb
+.setup_env.sh
+.DS_Store
+/notebooks/data_analysis_ezau_copy2.ipynb
+/notebooks/data_analysis_ezau_copy.ipynb
+/notebooks/ezau_run_final.txt
+/notebooks/trained_model/
+final.txt
