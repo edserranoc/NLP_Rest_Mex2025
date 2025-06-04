@@ -87,5 +87,5 @@ class DataPipelineVisualization:
     def plot_class_representative_wordcloud(self, class_label: str, label_type: str, k: int):
         return self.text_analyzer.plot_class_representative_wordcloud(class_label = class_label, label_type = label_type, k = k)
     
-    def plot_map_states(self, ax = None):
-        return self.map_plotter.plot_map(ax)
+    def plot_map_states(self, ax = None, params = None, params_bar=None):
+        return self.map_plotter.plot_map(ax,params = params,params_bar=params_bar)
