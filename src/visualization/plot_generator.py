@@ -453,15 +453,17 @@ class MapPlotter:
                                      }
                           }
         
-        
+        flag = False
         if ax is None:
             fig, ax = plt.subplots(figsize = (20,6))
+            flag = True
         
         data.plot(ax = ax, **params)
         cbar = ax.get_figure().get_axes()[1]
         cbar.set_title(**params_bar)
         ax.set_axis_off()
         plt.tight_layout(pad = 0)
-        plt.show()
+        if flag:
+            plt.show()
         
         
