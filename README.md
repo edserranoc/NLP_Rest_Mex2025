@@ -1,41 +1,60 @@
-# Rest-Mex 2025: Research on Sentiment Analysis Task for Mexican Tourist Texts (FrogCode Team) 🇲🇽 
+# Rest-Mex 2025: Research on Sentiment Analysis Task for Mexican Tourist Texts (FrogCode Team) 🇲🇽 🇨🇴
 
-The goal of this task is to analyze TripAdvisor Spanish-language reviews and classify them based on three key aspects:
+In this repository we address the task of joint classification of sentiment polarity, destination type, 
+and Magic Town from Spanish-language tourist reviews, as proposed by the 
+[Rest-Mex 2025 challenge](https://sites.google.com/cimat.mx/rest-mex-2025/sentiment-analysis-task?authuser=0), 
+part of the [IberLEF 2025](https://sites.google.com/view/iberlef-2025/tasks?authuser=0). 
 
--  sentiment polarity
--  type of site
--  associated Pueblo Mágico.
+We hereby propose a lightweight, hierarchical attention-based model that leverages
+the inherent structure of review data. Specifically, the model posits that words form reviews, and reviews are
+grouped by town. The proposed approach is predicated on the Hierarchical Attention Network (HAN), with
+extensions to a multi-output setting that are concomitant with the preservation of efficiency and interpretability
 
-Each review contains valuable information about a traveler's experience, and our objective is to extract meaningful insights from it. First, we need to determine the sentiment polarity of the review by assigning it a rating from 1 (very negative) to 5 (very positive), based on the original score given by the tourist. This will help in understanding overall visitor satisfaction.
+## Project structure
 
-Next, we classify the review according to the type of site being reviewed. The review could describe a hotel, a restaurant, or an attraction, and this categorization is based on contextual keywords and available metadata.
+The project is structured as follows:
 
-## Training Dataset
-
-- File: Rest-Mex_2025_Train.csv
-- Size: 208,051 instances (70% of the original dataset)
-- Columns:
-
-  - 📌 Title: The title given by the tourist to their opinion (Text).
-  - 📝 Review: The full review written by the tourist (Text).
-  - 🎭 Polarity: The sentiment polarity of the review (1 to 5).
-  - 📍 Town: The town where the review is focused (Text).
-  - 🌎 Region: The Mexican state where the town is located (Text). This feature is not for classification but can provide additional information.
-  - 🍽️ Type: The category of the reviewed place (Hotel, Restaurant, Attractive).
-
-To access the data, I recommend registering for the contest in [Rest-Mex 2025](https://sites.google.com/cimat.mx/rest-mex-2025/).
+```
+NLP_Rest_Mex2025/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── data/
+├── images/
+├── notebooks/
+│   ├── data_analysis_ezau.ipynb
+│   ├── data_analysis.ipynb
+│   ├── exploratoryAnalysis.ipynb
+│   └── train_model.ipynb
+└── src/
+    ├── inference/
+    │   └── predict.py
+    ├── models/
+    │   └── hierarchical_model.py
+    ├── pipelines/
+    │   ├── data_loader.py
+    │   ├── data_pipeline.py
+    │   ├── dataset.py
+    │   └── preprocessor.py
+    ├── train/
+    │   └── train.py
+    └── visualization/
+        └── plot_generator.py
+```
 
 ## Citing
 
-If you use NLP project in your research, please use the following citation:
+This repo is part of the [research paper](https://ceur-ws.org/Vol-4098/RESTMEX2025_paper14.pdf). If you find this code useful in your research, please consider citing:
 
-    @misc{...,
-      title        = {...},
-      month        = ...,
-      year         = 2025,
-      doi          = {...},
-      url          = {...}
-    }
+```
+@inproceedings{torres2025hierarchical,
+  title={Hierarchical Attention Networks for Multilabel Sentiment Analysis in Spanish Reviews of Mexican Magic Towns.},
+  author={Torres, Ezau Faridh Torres and C{\'a}rdenas, Edison David Serrano},
+  booktitle={IberLEF@ SEPLN},
+  year={2025}
+}
+```
 
 ## License
 
